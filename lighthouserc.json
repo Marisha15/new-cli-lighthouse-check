@@ -1,7 +1,7 @@
 {
   "ci": {
     "collect": {
-      "staticDir": "direction-with-static-html",
+      "staticDistDir": "direction-with-static-html",
       "numberOfRuns": 1
     },
     "assert": {
