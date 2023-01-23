@@ -1,0 +1,138 @@
+{
+  "ci": {
+    "collect": {
+      "staticDir": "direction-with-static-html",
+      "numberOfRuns": 1
+    },
+    "assert": {
+      "preset": "lighthouse:no-pwa",
+      "assertions": {
+        "color-contrast": [
+          "warn",
+          {
+            "minScore": 0.1
+          }
+        ],
+        "crawlable-anchors": [
+          "warn",
+          {
+            "minScore": 0.1
+          }
+        ],
+        "csp-xss": [
+          "warn",
+          {
+            "minScore": 0.1
+          }
+        ],
+        "errors-in-console": [
+          "warn",
+          {
+            "minScore": 0.1
+          }
+        ],
+        "font-display": [
+          "warn",
+          {
+            "minScore": 0.1
+          }
+        ],
+        "image-alt": [
+          "warn",
+          {
+            "minScore": 0.1
+          }
+        ],
+        "link-text": [
+          "warn",
+          {
+            "minScore": 0.1
+          }
+        ],
+        "meta-viewport": [
+          "warn",
+          {
+            "minScore": 0.1
+          }
+        ],
+        "unminified-css": [
+          "warn",
+          {
+            "minScore": 0.1
+          }
+        ],
+        "unminified-javascript": [
+          "warn",
+          {
+            "minScore": 0.1
+          }
+        ],
+        "unsized-images": [
+          "warn",
+          {
+            "minScore": 0.1
+          }
+        ],
+        "unused-css-rules": [
+          "warn",
+          {
+            "minScore": 0.1
+          }
+        ],
+        "unused-javascript": [
+          "warn",
+          {
+            "minScore": 0.1
+          }
+        ],
+        "valid-source-maps": [
+          "warn",
+          {
+            "minScore": 0.1
+          }
+        ],
+        "deprecations": [
+          "warn",
+          {
+            "minScore": 0.1
+          }
+        ],
+        "categories:performance": [
+          "warn",
+          {
+            "minScore": 0.1
+          }
+        ],
+        "categories:accessibility": [
+          "warn",
+          {
+            "minScore": 0.1
+          }
+        ],
+        "link-name": [
+          "warn",
+          {
+            "minScore": 0.1
+          }
+        ],
+        "non-composited-animations": [
+          "warn",
+          {
+            "minScore": 0.1
+          }
+        ],
+        "tap-targets": [
+          "warn",
+          {
+            "minScore": 0.1
+          }
+        ]
+      }
+    },
+    "upload": {
+      "target": "lhci",
+        "serverBaseUrl": "http://localhost:9001",
+        "token": "b9ea93fa-6a55-4655-8013-c7322200c907"
+    }
+  }
+}

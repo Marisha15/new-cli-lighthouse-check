@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<style>
+
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    min-height: 98vh;
+    display: flex;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+
+  }
+
+  button{
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .carousel {
+    flex-grow: 1;
+    overflow: visible;
+    position: relative;
+    padding: 5vh 0 0 3vw;
+  }
+
+  #gallery {
+    display: flex;
+    padding: 1rem;
+    gap: 3rem;
+    height: 95%;
+    position: absolute;
+    top: 5%;
+    bottom: 1rem;
+  }
+
+  .image-expand-container {
+    height: 100%;
+  }
+
+  .image-content-container {
+    width: 480px;
+    gap: 5vh;
+  }
+
+  .content-wrapper,
+  .image-content-container,
+  .image-expand-container {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+  }
+
+  .image-expand-container {
+    justify-content: flex-end;
+  }
+
+  #gallery,
+  .image-expand{
+    transition: all ease-in-out .8s;
+  }
+
+  .image-expand {
+    width: 533px;
+    height: 60%;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  .image-expand.active{
+    width: 670px;
+    height: 100%;
+  }
+
+  .content-wrapper {
+    flex-grow: 1;
+    opacity: 0;
+    transform: translateY(15%);
+    transition: all ease-in-out 1150ms;
+  }
+
+  .content-wrapper.active{
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .content-wrapper p{
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+
+  .content-wrapper span{
+    color: rgba(0, 0, 0, 0.574);
+    text-transform: capitalize;
+  }
+
+  .image-wrapper {
+    width: 100%;
+    height: 45%;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  .btn-wrapper {
+    position: absolute;
+    right: 2%;
+    top: 2%;
+    z-index: 3;
+  }
+
+  button {
+    padding: .8rem 1rem;
+    border-radius: 50%;
+    border: 1px solid #444;
+    background: unset;
+    cursor: pointer;
+  }
+
+  button:hover{
+    border: 1px solid #888;
+  }
+
+  button:hover svg{
+    fill: #888;
+  }
+
+  button:active{
+    border: 1px solid #444;
+  }
+
+  button:active svg{
+    fill: #444;
+  }
+
+  button:disabled{
+    border: 1px solid #888;
+  }
+
+  button:disabled svg{
+    fill: #888;
+  }
+
+  button svg{
+    width: 30px;
+    height: 30px;
+    fill: #444;
+  }
+</style>
+<body>
+<div class="carousel">
+  <div class="btn-wrapper">
+    <button onclick="moveGallery(1)">
+      <svg viewBox="0 0 448 512" width="100" title="arrow-left">
+        <path d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z" />
+      </svg>
+    </button>
+    <button onclick="moveGallery(-1)">
+      <svg viewBox="0 0 448 512" width="100" title="arrow-right">
+        <path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z" />
+      </svg>
+    </button>
+  </div>
+  <div id="gallery">
+    <div class="image-expand-container">
+      <img src="https://picsum.photos/700/1000?random=3" class="image-expand active" alt="picsum photo" >
+    </div>
+    <div class="image-content-container">
+      <div class="content-wrapper active">
+        <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio vero consequatur, pariatur rem
+          similique autem asperiores. Ad, mollitia. Sapiente, iusto."</p>
+        <span>NAME</span>
+      </div>
+      <img src="https://picsum.photos/500/500" alt="picsum photo" class="image-wrapper">
+    </div>
+    <div class="image-expand-container">
+      <img src="https://picsum.photos/700/1000?random=1" class="image-expand" alt="picsum photo">
+    </div>
+    <div class="image-content-container">
+      <div class="content-wrapper">
+        <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio vero consequatur, pariatur rem
+          similique autem asperiores. Ad, mollitia. Sapiente, iusto."</p>
+        <span>NAME</span>
+      </div>
+      <img src="https://picsum.photos/500/500" alt="picsum photo" class="image-wrapper">
+    </div>
+    <div class="image-expand-container">
+      <img src="https://picsum.photos/700/1000?random=2" class="image-expand" alt="picsum photo">
+    </div>
+    <div class="image-content-container">
+      <div class="content-wrapper">
+        <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio vero consequatur, pariatur rem
+          similique autem asperiores. Ad, mollitia. Sapiente, iusto."</p>
+        <span>NAME</span>
+      </div>
+      <img src="https://picsum.photos/500/500" alt="picsum photo" class="image-wrapper">
+    </div>
+    <div class="image-expand-container">
+      <img src="https://picsum.photos/700/1000?random=4" class="image-expand" alt="picsum photo">
+    </div>
+    <div class="image-content-container">
+      <div class="content-wrapper">
+        <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio vero consequatur, pariatur rem
+          similique autem asperiores. Ad, mollitia. Sapiente, iusto."</p>
+        <span>NAME</span>
+      </div>
+      <img src="https://picsum.photos/500/500" alt="picsum photo" class="image-wrapper">
+    </div>
+  </div>
+</div>
+</body>
+<script>
+  const galleryContainer = document.getElementById('gallery')
+  const expandableImages = document.querySelectorAll('.image-expand')
+  const content = document.querySelectorAll('.content-wrapper')
+  const buttons = document.querySelectorAll('button')
+
+  let count = 3;
+  let imageIndex = 1;
+  let width = 0;
+
+
+  function moveGallery(n) {
+    if (n < 0 && count > 0) {
+      width -= 1109;
+      galleryContainer.style.transform = `translateX(${width}px)`
+      handleImages(n)
+      showContent(n)
+      imageIndex ++
+      count += n
+    } else if (n > 0 && count < 3) {
+      width += 1109;
+      galleryContainer.style.transform = `translateX(${width}px)`
+      handleImages(n)
+      showContent(n)
+      imageIndex --
+      count += n
+    }
+
+    disableBtns()
+  }
+
+  function handleImages(n){
+    if(n < 0){
+      expandableImages[imageIndex + n].classList.toggle("active");
+      expandableImages[imageIndex].classList.toggle("active")
+    }else{
+      expandableImages[imageIndex - 1].classList.toggle("active")
+      expandableImages[imageIndex - 2].classList.toggle("active")
+    }
+  }
+
+  function showContent(n){
+    if(n < 0){
+      content[imageIndex + n].classList.toggle("active")
+      content[imageIndex].classList.toggle("active");
+    }else{
+      content[imageIndex - 1].classList.toggle("active")
+      content[imageIndex - 2].classList.toggle("active")
+    }
+  }
+
+  function disableBtns(){
+    if (count === 0) {
+      buttons[1].disabled = true;
+      buttons[0].disabled = false;
+    } else if (count === 3) {
+      buttons[1].disabled = false;
+      buttons[0].disabled = true;
+    }else{
+      buttons[0].disabled = false;
+      buttons[1].disabled = false;
+    }
+  }
+
+  disableBtns()
+</script>
+</html>
