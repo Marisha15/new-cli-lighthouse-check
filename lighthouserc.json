@@ -1,6 +1,7 @@
 {
   "ci": {
     "collect": {
+      "puppeteerScript": "pre-config.js",
       "staticDistDir": "direction-with-static-html",
       "numberOfRuns": 1
     },
